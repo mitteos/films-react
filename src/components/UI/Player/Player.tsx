@@ -8,8 +8,9 @@ interface PlayerProps {
 const Player: FC<PlayerProps> = ({filmId}) => {
 
     usePlayer()
-
+    
     return (
+        // todo: не изменяется filmId в компоненте после перехода из слайдера
         <div id="yohoho" data-resize="1" data-kinopoisk={filmId}></div>
     );
 };
