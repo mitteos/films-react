@@ -5,25 +5,33 @@ import {fetchFilms, fetchSearchFilms} from "../store/asyncActions/fetchFilms";
 import Spinner from "./UI/Spinner/Spinner";
 import {useParams} from 'react-router-dom';
 import Pagination from "./UI/Pagination/Pagination";
+import {filmSlice} from "../store/reducers/FilmSlice";
 
 const FilmList = () => {
 
     const dispatch = useAppDispatch()
-    const {title, page} = useParams()
-    const {films, error, isLoading, selectedGenresAndCountries, pageCount} = useAppSelector(state => state.filmSlice)
+    const {title, page: pageParams} = useParams()
+    const {films, error, isLoading, selectedGenresAndCountries, pageCount, page} = useAppSelector(state => state.filmSlice)
 
-
-
-    // todo: оптимизировать повторные запросы
-    useEffect(() => {
-        title
-            ? dispatch(fetchSearchFilms(title))
-            : !films.allFilms.length && dispatch(fetchFilms(page ? Number(page) : 1, selectedGenresAndCountries))
-    }, [title])
 
     useEffect(() => {
-        dispatch(fetchFilms(page ? Number(page) : 1, selectedGenresAndCountries))
-    }, [page, selectedGenresAndCountries])
+        if(films.allFilms.length < 1) {
+            dispatch(fetchFilms(page ? Number(page) : 1, selectedGenresAndCountries))
+            console.log('query 1')
+        }
+    }, [])
+
+    useEffect(() => {
+        title && dispatch(fetchSearchFilms(title))
+
+        if(Number(pageParams) && Number(pageParams) !== page) {
+            dispatch(filmSlice.actions.setPage(Number(pageParams)))
+            dispatch(fetchFilms(Number(pageParams), selectedGenresAndCountries))
+            console.log('query 2')
+        }
+        console.log('page')
+
+    }, [title, pageParams])
 
     return (
         <div className="list">

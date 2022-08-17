@@ -1,6 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import cl from './Pagination.module.sass';
+import {useAppDispatch, useAppSelector} from "../../../hooks/store";
+import {filmSlice} from "../../../store/reducers/FilmSlice";
 
 interface PaginationProps {
     pageCount: number;
@@ -13,11 +15,18 @@ const Pagination: FC<PaginationProps> = ({pageCount}) => {
         pages.push(i)
     }
     const navigate = useNavigate()
-    const {page} = useParams()
+    const {page: pageParams} = useParams()
+    const dispatch = useAppDispatch()
+    const {page} = useAppSelector(state => state.filmSlice)
     const [selectedPage, setSelectedPage] = useState<number>(Number(page) || 1)
+
     useEffect(() => {
-        page && setSelectedPage(Number(page))
-    }, [page])
+        pageParams && setSelectedPage(Number(pageParams))
+    }, [pageParams])
+
+    const setPage = (page: number) => {
+        navigate(`/watch/page=${page}`)
+    }
 
     return (
         <div className={cl.pagination__container}>
@@ -27,46 +36,46 @@ const Pagination: FC<PaginationProps> = ({pageCount}) => {
                         <div
                             key={p}
                             className={[cl.pagination__item, selectedPage === p ? cl.selected : ''].join(' ')}
-                            onClick={() => navigate(`/watch/page=${p}`)}
+                            onClick={() => setPage(p)}
                         >{p}</div>
                     )}
                     <div>...</div>
                     <div
                         className={cl.pagination__item}
-                        onClick={() => navigate(`/watch/page=${pageCount}`)}
+                        onClick={() => setPage(pageCount)}
                     >{pageCount}</div>
                 </div>
                 : selectedPage < pageCount - 3
                     ? <div className={cl.pagination}>
                         <div
                             className={cl.pagination__item}
-                            onClick={() => navigate('/watch/page=1')}
+                            onClick={() => setPage(1)}
                         >1</div>
                         <div>...</div>
                         {pages.slice(Number(page) - 3, Number(page) + 2).map(p =>
                             <div
                                 key={p}
                                 className={[cl.pagination__item, selectedPage === p ? cl.selected : ''].join(' ')}
-                                onClick={() => navigate(`/watch/page=${p}`)}
+                                onClick={() => setPage(p)}
                             >{p}</div>
                         )}
                         <div>...</div>
                         <div
                             className={cl.pagination__item}
-                            onClick={() => navigate(`/watch/page=${pageCount}`)}
+                            onClick={() => setPage(pageCount)}
                         >{pageCount}</div>
                     </div>
                     : <div className={cl.pagination}>
                         <div
                             className={cl.pagination__item}
-                            onClick={() => navigate('/watch/page=1')}
+                            onClick={() => setPage(1)}
                         >1</div>
                         <div>...</div>
                         {pages.slice(pageCount - 5, pageCount).map(p =>
                             <div
                                 key={p}
                                 className={[cl.pagination__item, selectedPage === p ? cl.selected : ''].join(' ')}
-                                onClick={() => navigate(`/watch/page=${p}`)}
+                                onClick={() => setPage(p)}
                             >
                                 {p}
                             </div>

@@ -95,6 +95,9 @@ export const filmSlice = createSlice({
         setPageCount(state, action: PayloadAction<number>) {
             state.pageCount = action.payload
             state.isLoading = false
+        },
+        setPage(state, action: PayloadAction<number>){
+            state.page = action.payload
         }
     }
 })

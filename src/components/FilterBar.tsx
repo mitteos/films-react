@@ -4,6 +4,7 @@ import {filmSlice} from "../store/reducers/FilmSlice";
 import Spinner from "./UI/Spinner/Spinner";
 import CustomSelect from "./UI/CustomSelect/CustomSelect";
 import {fetchGenresAndCountries} from "../store/asyncActions/fetchFilms";
+import {useNavigate} from "react-router-dom";
 
 export interface SelectProps {
     id: number;
@@ -15,6 +16,7 @@ const FilterBar = () => {
 
     const {genresAndCountries, selectedGenresAndCountries, loadingGenresAndCountries} = useAppSelector(state => state.filmSlice)
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const [selectedGenres, setSelectedGenre] = useState<number[]>(selectedGenresAndCountries.genres || [])
     const [selectedCountries, setSelectedCountries] = useState<number[]>(selectedGenresAndCountries.countries || [])
@@ -28,6 +30,7 @@ const FilterBar = () => {
         }
         dispatch(filmSlice.actions.setSelectedGenresAndCountries(filtered))
         setIsOpen(false)
+        navigate('/watch/page=1')
     }
 
     useEffect(() => {
