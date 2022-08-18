@@ -1,12 +1,15 @@
 import React from 'react';
 import FilmList from "../components/FilmList";
 import FilterBar from "../components/FilterBar";
+import {useParams} from 'react-router-dom';
 
 const CatalogPage = () => {
 
+    const {title} = useParams()
+
     return (
         <div className='container catalog'>
-            <FilterBar />
+            {!title && <FilterBar />}
             <FilmList />
         </div>
     );
