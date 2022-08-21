@@ -32,7 +32,7 @@ const FilmList = () => {
         console.log('page')
 
     }, [title, pageParams])
-    
+
     useEffect(() => {
         dispatch(fetchFilms(page, selectedGenresAndCountries))
     }, [selectedGenresAndCountries])
