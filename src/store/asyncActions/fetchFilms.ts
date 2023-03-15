@@ -6,9 +6,9 @@ import {
     IFilmResponseKP,
     IFilmResponsePopular,
     SelectedGenresAndCountries,
-} from "../../types";
+} from "types";
 import {filmSlice} from "../reducers/FilmSlice";
-import {$kpToken} from "../../http";
+import {$kpToken} from "http/index";
 
 
 

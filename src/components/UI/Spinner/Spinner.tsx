@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from './spinner.module.sass';
-import SpinnerIcon from '../../../static/spinner.gif';
+import SpinnerIcon from 'static/spinner.gif';
 
 const Spinner = () => {
     return (

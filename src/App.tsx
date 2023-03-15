@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.sass';
-import {routes} from "./routes";
-import NavBar from "./components/NavBar";
+import {routes} from "routes";
+import NavBar from "components/NavBar";
 
 const App = () => {
     return (

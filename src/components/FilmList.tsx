@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import FilmItem from "./UI/FilmItem/FilmItem";
-import {useAppDispatch, useAppSelector} from "../hooks/store";
-import {fetchFilms, fetchSearchFilms} from "../store/asyncActions/fetchFilms";
+import FilmItem from "./FilmItem/FilmItem";
+import {useAppDispatch, useAppSelector} from "hooks/store";
+import {fetchFilms, fetchSearchFilms} from "store/asyncActions/fetchFilms";
 import Spinner from "./UI/Spinner/Spinner";
 import {useParams} from 'react-router-dom';
 import Pagination from "./UI/Pagination/Pagination";
-import {filmSlice} from "../store/reducers/FilmSlice";
+import {filmSlice} from "store/reducers/FilmSlice";
 
 const FilmList = () => {
 
@@ -17,20 +17,15 @@ const FilmList = () => {
     useEffect(() => {
         if(films.allFilms.length < 1) {
             dispatch(fetchFilms(page ? Number(page) : 1, selectedGenresAndCountries))
-            console.log('query 1')
         }
     }, [])
 
     useEffect(() => {
         title && dispatch(fetchSearchFilms(title))
-
         if(Number(pageParams) && Number(pageParams) !== page) {
             dispatch(filmSlice.actions.setPage(Number(pageParams)))
             dispatch(fetchFilms(Number(pageParams), selectedGenresAndCountries))
-            console.log('query 2')
         }
-        console.log('page')
-
     }, [title, pageParams])
 
     useEffect(() => {

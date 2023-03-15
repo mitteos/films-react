@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
-import {SelectProps} from "../../FilterBar";
 import cl from './CustomSelect.module.sass';
-import SelectIcon from '../../../static/selectIcon.svg';
+import SelectIcon from 'static/selectIcon.svg';
+import {SelectProps} from "components/FilterBar";
 
 
 interface CustomSelectProps {

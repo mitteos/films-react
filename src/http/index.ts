@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const $kpToken = axios.create({
     baseURL: 'https://kinopoiskapiunofficial.tech/',
     headers: {

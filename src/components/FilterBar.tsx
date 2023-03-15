@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useAppDispatch, useAppSelector} from "../hooks/store";
-import {filmSlice} from "../store/reducers/FilmSlice";
+import {useAppDispatch, useAppSelector} from "hooks/store";
+import {filmSlice} from "store/reducers/FilmSlice";
 import Spinner from "./UI/Spinner/Spinner";
 import CustomSelect from "./UI/CustomSelect/CustomSelect";
-import {fetchGenresAndCountries} from "../store/asyncActions/fetchFilms";
+import {fetchGenresAndCountries} from "store/asyncActions/fetchFilms";
 import {useNavigate} from "react-router-dom";
 
 export interface SelectProps {

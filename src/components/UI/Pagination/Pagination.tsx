@@ -1,8 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import cl from './Pagination.module.sass';
-import {useAppDispatch, useAppSelector} from "../../../hooks/store";
-import {filmSlice} from "../../../store/reducers/FilmSlice";
+import {useAppSelector} from "hooks/store";
 
 interface PaginationProps {
     pageCount: number;
@@ -16,7 +15,6 @@ const Pagination: FC<PaginationProps> = ({pageCount}) => {
     }
     const navigate = useNavigate()
     const {page: pageParams} = useParams()
-    const dispatch = useAppDispatch()
     const {page} = useAppSelector(state => state.filmSlice)
     const [selectedPage, setSelectedPage] = useState<number>(Number(page) || 1)
 

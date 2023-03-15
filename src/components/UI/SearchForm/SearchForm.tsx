@@ -1,5 +1,5 @@
 import React, {FC, FormEvent, useState} from 'react';
-import SearchIcon from "../../../static/searchIcon.svg";
+import SearchIcon from "static/searchIcon.svg";
 import {useNavigate} from "react-router-dom";
 
 interface SearchFormProps {

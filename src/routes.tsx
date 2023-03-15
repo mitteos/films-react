@@ -1,6 +1,6 @@
-import HomePage from "./pages/HomePage";
-import CatalogPage from "./pages/CatalogPage";
-import FilmPage from "./pages/FilmPage";
+import HomePage from "pages/HomePage";
+import CatalogPage from "pages/CatalogPage";
+import FilmPage from "pages/FilmPage";
 import {Navigate} from "react-router-dom";
 
 export const routes = [

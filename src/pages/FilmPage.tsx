@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../hooks/store";
-import IMDbIcon from '../static/IMDb.svg';
-import PlayIcon from '../static/play.svg';
-import TrailerIcon from '../static/trailer.svg';
-import AddIcon from '../static/add.svg';
-import {fetchOneFilm, fetchPopularFilms} from "../store/asyncActions/fetchFilms";
-import Spinner from "../components/UI/Spinner/Spinner";
-import Slider from "../components/UI/Slider/Slider";
-import Player from "../components/UI/Player/Player";
-import ArrowIcon from '../static/arrow.svg';
+import {useAppDispatch, useAppSelector} from "hooks/store";
+import IMDbIcon from 'static/IMDb.svg';
+import PlayIcon from 'static/play.svg';
+import TrailerIcon from 'static/trailer.svg';
+import AddIcon from 'static/add.svg';
+import {fetchOneFilm, fetchPopularFilms} from "store/asyncActions/fetchFilms";
+import Spinner from "components/UI/Spinner/Spinner";
+import Slider from "components/UI/Slider/Slider";
+import Player from "components/UI/Player/Player";
+import ArrowIcon from 'static/arrow.svg';
 
 const FilmPage = () => {
 

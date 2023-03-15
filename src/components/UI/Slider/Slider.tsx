@@ -4,8 +4,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import {Autoplay, Pagination} from "swiper";
 import SliderButton from "../SliderButton/SliderButton";
-import FilmItem from "../FilmItem/FilmItem";
-import {IFilmPopular} from "../../../types";
+import FilmItem from "components/FilmItem/FilmItem";
+import {IFilmPopular} from "types";
 import cl from './Slider.module.sass';
 
 interface SliderProps {

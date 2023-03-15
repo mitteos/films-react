@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import Logo from '../static/logo.svg';
-import Notification from '../static/notification.svg';
-import HeaderArrow from '../static/header-profile.svg';
-import HeaderProfileIcon from '../static/profileIcon.png';
+import Logo from 'static/logo.svg';
 import {Link} from "react-router-dom";
-import SearchForm from "./UI/SearchForm/SearchForm";
+import SearchForm from "components/UI/SearchForm/SearchForm";
 
 const NavBar = () => {
 

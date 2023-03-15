@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import {useSwiper} from "swiper/react";
 import cl from './SliderButton.module.sass';
-import SliderButtonIcon from '../../../static/SliderButton.svg';
+import SliderButtonIcon from 'static/SliderButton.svg';
 
 
 interface SliderButtonProps {

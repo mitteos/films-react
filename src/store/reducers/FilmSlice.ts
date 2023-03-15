@@ -4,7 +4,7 @@ import {
     IFilmKP,
     IFilmPopular,
     SelectedGenresAndCountries
-} from "../../types";
+} from "types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 

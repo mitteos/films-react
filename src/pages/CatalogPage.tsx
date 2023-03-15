@@ -1,6 +1,6 @@
 import React from 'react';
-import FilmList from "../components/FilmList";
-import FilterBar from "../components/FilterBar";
+import FilmList from "components/FilmList";
+import FilterBar from "components/FilterBar";
 import {useParams} from 'react-router-dom';
 
 const CatalogPage = () => {
